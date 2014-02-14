@@ -14,5 +14,5 @@
               :source-paths ["src"]
               :compiler {
                 :output-to "euler.js"
-                :optimizations :advanced
+                :optimizations :simple
                 :source-map "euler.js.map" }}]})
