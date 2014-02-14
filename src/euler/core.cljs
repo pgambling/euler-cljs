@@ -2,4 +2,4 @@
 
 (enable-console-print!)
 
-(println (euler.two/run))
+(println (euler.one/run))
