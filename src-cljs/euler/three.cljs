@@ -1,4 +1,4 @@
-(ns euler.test)
+(ns euler.three)
 
 (defn gcd [a b]
   (if (zero? b)

@@ -11,7 +11,7 @@
 
   :cljsbuild {
     :builds [{:id "euler"
-              :source-paths ["src"]
+              :source-paths ["src-cljs"]
               :compiler {
                 :output-to "euler.js"
                 :optimizations :simple
