@@ -1,21 +1,15 @@
 (ns euler.three)
 
-(defn gcd [a b]
-  (if (zero? b)
-    a
-    (recur b (mod a b))))
-
-(defn prime-numbers [a n]
-  (let [n1 (inc n)
-        a1 (+ a (gcd n1 a))]
-    (cons (- a1 a) (lazy-seq (prime-numbers a1 n1)))))
-
-
 (defn multiple? [n div]
   (= 0 (mod n div)))
 
-(defn largest-prime-factor [n]
-  (take-while #(> % (/ n %)) (filter #(and (not= % 1) (multiple? n %)) (prime-numbers 7 1))))
+(defn largest-prime-factor
+  ([num] (largest-prime-factor num 2))
+  ([num prime]
+    (cond
+      (= 1 num) prime
+      (multiple? num prime) (recur (/ num prime) prime)
+      :else (recur num (inc prime)))))
 
 (defn run []
   (largest-prime-factor 600851475143))
