@@ -13,16 +13,11 @@
 
 (defn smallest-multiple [nums]
   (->> nums
-    (map prime-factors)
-    (map vector nums)
-    (into [{}])
-    (reduce
-      (fn [factor-map kv]
-        (let [num (first kv)
-              factors (second kv)]
-          (if (= 1 (count factors))
-            (assoc factor-map (first factors) num)
-            factor-map))))
+    (reduce (fn [factors-map num]
+      (let [primes (prime-factors num)]
+        (if (= 1 (count primes))
+          (assoc factors-map (first primes) num)
+          factors-map))) {})
     vals
     (apply *)))
 
