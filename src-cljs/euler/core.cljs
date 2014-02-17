@@ -3,6 +3,6 @@
 (enable-console-print!)
 
 (defn init []
-  (println (euler.four/run)))
+  (println (euler.five/run)))
 
 (set! (.-onload js/window) init)
